@@ -10,15 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include"libftprintf.h"
 
-#include "libft.h"
-
-char    check_specifier(const char *str, int i, va_list args)
+char    ft_check_specifier(const char *str, int i, va_list args)
 {
 	if (str[i] == '%')
 		return (ft_putchar(str[i]));
 	if (str[i] == 'c')
-		return (ft_putchar(va_arg(args, int))); // int because is a char, so its the same bcs of ascii
+		return (ft_putchar(va_arg(args, int)));
 	if (str[i] == 's')
 		return (ft_writing(va_arg(args, char *)));
 	if (str[i] == 'u')
@@ -31,5 +30,6 @@ char    check_specifier(const char *str, int i, va_list args)
 		return (ft_hexa(va_arg(args, int), "1234567890abcdef"));
 	if (str[i] == 'X')
 		return (ft_hexa(va_arg(args, int), "1234567890ABCDEF"));
+	return(0);
 
 }

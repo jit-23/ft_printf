@@ -10,22 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 int ft_printf(const char *string, ...)
 {
-        size_t i = 0;
+        size_t  i;
+
+        i = 0;
         va_list args;
         va_start(args,string);
         while(string[i])
         {
-                if(string[i] == '%' && ft_strchr("csudipxX%",string[i + 1]) != 0)
+                if(string[i] == '%' && ft_strchr("csudipxX%",string[i + 1]) != NULL)
                 {
-                        check_specifier(string, i + 1 , args);
+                        ft_check_specifier(string, i + 1 , args);
                         i += 2;
                 }
                 write(1,&string[i],1);
                 i++;
         }
         return (5);
+}
+int main()
+{
+        ft_printf("hi my name is %s, and im %d y/o", "fernando", 19);
+        return (0);
 }

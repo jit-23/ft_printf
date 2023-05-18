@@ -14,17 +14,21 @@ NAME =  libftprintf.a
 CFLAGS = -Wall -Werror -Wextra
 CC = cc
 FUN =   ft_printf.c ft_check_specifier.c ft_putchar.c ft_putnbr.c \
-		ft_strchr.c ft_strlen.c ft_writing.c
-OBJS = {FUN:.c=.o}
+		ft_strchr.c ft_writing.c ft_hexa.c ft_strlen.c 
+OBJS = ${FUN:.c=.o}
 
 all: ${NAME}
 
 ${NAME}:
 		cc ${CFLAGS} -c ${FUN}
-		ar ${NAME} ${OBJS}
+		ar rc ${NAME} ${OBJS}
+
 clean:
 		rm -f ${OBJS}
+
 fclean: clean
-		rm -f ${NAME} ${OBJS}
+		rm -f ${NAME}
+
 re: fclean all
+
 .PHONY: all clean fclean re
