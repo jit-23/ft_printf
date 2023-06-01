@@ -3,21 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_writing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-jesu <fde-jesu@student.42porto.co      +#+  +:+       +#+        */
+/*   By: fde-jesu <fde-jesu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:29:25 by fde-jesu          #+#    #+#             */
-/*   Updated: 2023/05/16 21:29:26 by fde-jesu         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:08:58 by fde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libftprintf.h"
+#include"ft_printf.h"
 
-int     ft_writing(char *str)
+void	ft_writing(char *str, unsigned int *byte_count)
 {
-    int i;
+	int	i;
 
 	i = 0;
-    while(str[i])
-        write(1,&str[i++],1);
-    return(i);
+	if (str == NULL)
+	{
+		*byte_count += (write(1, "(null)", 6));
+		return ;
+	}
+	while (str[i] != '\0')
+	{
+		*byte_count += write(1, &str[i], 1);
+		i++;
+	}
 }
