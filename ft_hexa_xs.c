@@ -6,7 +6,7 @@
 /*   By: fde-jesu <fde-jesu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:43:49 by fde-jesu          #+#    #+#             */
-/*   Updated: 2023/06/01 12:15:00 by fde-jesu         ###   ########.fr       */
+/*   Updated: 2023/06/22 19:37:42 by fde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	printf_xs(unsigned int nb, char type)
 	else
 	{
 		if (nb <= 9)
-			ft_putchar(nb + '0');
+			ft_putchar(nb + 48);
 		else
 		{
 			if (type == 'a')
